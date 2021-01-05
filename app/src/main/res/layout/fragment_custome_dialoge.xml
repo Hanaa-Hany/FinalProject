@@ -51,7 +51,9 @@
             android:textColor="@color/black"
             android:textSize="@dimen/_12ssp"
             app:backgroundTint="@color/white"
-            app:cornerRadius="@dimen/_10sdp" />
+            app:cornerRadius="@dimen/_10sdp"
+            android:textAllCaps="false"
+            />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_cancel"
@@ -64,7 +66,8 @@
             android:textColor="#F44336"
             android:textSize="@dimen/_12ssp"
             app:backgroundTint="@color/white"
-            app:cornerRadius="@dimen/_10sdp" />
+            app:cornerRadius="@dimen/_10sdp"
+            android:textAllCaps="false"/>
 
 
     </LinearLayout>
