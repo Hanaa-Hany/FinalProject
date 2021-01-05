@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    tools:context=".fragment.CustomeDialogeFragment"
+    android:layout_gravity="center"
+    android:background="@drawable/dialoge_corner"
+    app:cardCornerRadius="@dimen/_20sdp"
+    android:elevation="@dimen/_5sdp"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="@dimen/_32sdp"
+        android:layout_height="@dimen/_32sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:src="@drawable/ic_exit"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:gravity="center"
+        android:padding="@dimen/_5sdp"
+        android:text="@string/are_you_sure_you_want_to_leave_meeting"
+        android:textColor="@color/Red"
+        android:textSize="@dimen/_16ssp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_2sdp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_yes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_weight="1"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/yes"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            app:backgroundTint="@color/white"
+            app:cornerRadius="@dimen/_10sdp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_weight="1"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/cancel"
+            android:textColor="#F44336"
+            android:textSize="@dimen/_12ssp"
+            app:backgroundTint="@color/white"
+            app:cornerRadius="@dimen/_10sdp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
