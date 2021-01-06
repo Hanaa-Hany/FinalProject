@@ -1,29 +1,30 @@
 package com.example.finalproject.activity;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Toast;
+import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.compose.ui.geometry.Rect;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.finalproject.R;
+import com.example.finalproject.fragment.ChatFragment;
 import com.example.finalproject.fragment.CustomeDialogeFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     NavController navController;
     AppBarConfiguration appBarConfiguration;
+    BottomNavigationView bottomNavigationView;
+    FrameLayout continer;
 
 
     @Override
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         initViews();
+
 
         appBarConfiguration =
                 new AppBarConfiguration.Builder(R.id.homeFragment, R.id.participantFragment)
@@ -88,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         navController = Navigation.findNavController(MainActivity.this, R.id.nav_host_fragment);
+        bottomNavigationView=findViewById(R.id.bottomNavigation);
+        continer=findViewById(R.id.continerr);
     }
 
     @Override
