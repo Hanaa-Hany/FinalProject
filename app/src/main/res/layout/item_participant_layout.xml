@@ -26,14 +26,14 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/ic_mic"
+            android:src="@drawable/ic_unmute"
             android:layout_marginTop="@dimen/_10sdp"
             />
         <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/ic_videocam"
+            android:src="@drawable/ic_video_start"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"/>
 

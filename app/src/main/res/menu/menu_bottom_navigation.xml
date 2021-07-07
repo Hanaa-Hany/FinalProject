@@ -2,39 +2,45 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/mute"
+        android:id="@+id/unmute"
         android:title="Mute"
-        android:icon="@drawable/ic_mute"
+        android:icon="@drawable/ic_unmute"
         app:showAsAction="always"
-        android:enabled="true">
+        android:enabled="true"
+        android:state_checked="true">
     </item>
     <item
         android:id="@+id/stop_video"
         android:title="Stop Video"
-        android:icon="@drawable/ic_video"
+        android:icon="@drawable/ic_video_start"
         app:showAsAction="always"
-        android:enabled="true">
+        android:enabled="true"
+        android:state_checked="true">
     </item>
     <item
         android:id="@+id/share_screen"
         android:title="Share Screen"
         android:icon="@drawable/ic_share"
         app:showAsAction="always"
-        android:enabled="true">
+        android:enabled="true"
+        android:state_checked="true">
     </item>
     <item
         android:id="@+id/hand"
         android:title="Raise Hand"
         android:icon="@drawable/ic_hand"
         app:showAsAction="always"
-        android:enabled="true">
+        android:enabled="true"
+        android:state_checked="true">
     </item>
     <item
         android:id="@+id/chat"
         android:title="Chat"
         android:icon="@drawable/ic_chat"
         app:showAsAction="always"
-        android:enabled="true">
+        android:enabled="true"
+        android:state_checked="true">
     </item>
+
 
 </menu>

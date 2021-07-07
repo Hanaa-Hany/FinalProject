@@ -1,6 +1,8 @@
-package com.example.finalproject.fragment;
+package com.example.finalproject.fragment.mainFragment;
 
 import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,7 +21,7 @@ import com.example.finalproject.R;
 import com.example.finalproject.activity.MainActivity;
 
 
-public class CustomeDialogeFragment extends DialogFragment {
+public class  CustomeDialogeFragment extends DialogFragment {
 
     Button buttonYes,buttonCancel;
 
@@ -27,23 +29,16 @@ public class CustomeDialogeFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        //to handel corner dialog
+        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_custome_dialoge, container, false);
 
 
     }
 
-    @Override
-    public void onResume() {
 
-        //to resize custome Dialoge
-            int width = getResources().getDimensionPixelSize(R.dimen._300sdp);
-            int height = getResources().getDimensionPixelSize(R.dimen._200sdp);
-            getDialog().getWindow().setLayout(width, height);
-            // Call super onResume after sizing
-
-        super.onResume();
-    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

@@ -5,10 +5,12 @@
     <item
         android:id="@id/homeFragment"
         android:icon="@drawable/ic_home"
-        android:title="@string/home" />
+        android:title="@string/home"
+        android:state_checked="true"
+        />
 
     <item
         android:id="@id/participantFragment"
         android:icon="@drawable/ic_groups"
-        android:title="@string/participants" />
+        android:title="@string/participants"/>
 </menu>

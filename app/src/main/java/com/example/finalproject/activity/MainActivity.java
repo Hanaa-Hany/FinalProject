@@ -1,12 +1,12 @@
 package com.example.finalproject.activity;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-
 
 import androidx.annotation.NonNull;
 
@@ -16,19 +16,17 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import com.example.finalproject.R;
-import com.example.finalproject.fragment.ChatFragment;
-import com.example.finalproject.fragment.CustomeDialogeFragment;
+import com.example.finalproject.fragment.mainFragment.ChatFragment;
+import com.example.finalproject.fragment.mainFragment.CustomeDialogeFragment;
 
-import com.example.finalproject.fragment.HomeFragment;
-import com.example.finalproject.fragment.ParticipantFragment;
+import com.example.finalproject.fragment.mainFragment.HomeFragment;
+import com.example.finalproject.fragment.mainFragment.ParticipantFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+
+import java.net.URISyntaxException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,23 +36,32 @@ public class MainActivity extends AppCompatActivity {
 //    AppBarConfiguration appBarConfiguration;
     BottomNavigationView bottomNavigationView;
     FrameLayout frameLayout;
+    boolean pressMute =true;
+    boolean pressVideo=true;
+    String Nickname;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+       // mSocket.connect();
         setContentView(R.layout.activity_main);
+
+//        Nickname= (String)getIntent().getExtras().getString(UserActivity.NICKNAME);
 
 
 
         initViews();
-
+        //to start with home fragment
         changeFragment(new HomeFragment());
 
         ActionBar actionbar = getSupportActionBar();
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
         actionbar.setDisplayHomeAsUpEnabled(true);
+        toggelBottomNavigationFragment();
+        toggelDrawerLayout();
+       // bottomNavigationView.setItemTextColor(ColorStateList.valueOf(Color.RED));
 
 //        NavigationUI.setupActionBarWithNavController(MainActivity.this, navController, appBarConfiguration);
 //        NavigationUI.setupWithNavController(navigationView, navController);
@@ -74,10 +81,11 @@ public class MainActivity extends AppCompatActivity {
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(false);
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(new CustomeDialogeFragment(), "CustomDialog")
-                .commit();
+        addFragment(new CustomeDialogeFragment());
+        //getSupportFragmentManager()
+       //         .beginTransaction()
+         //       .add(new CustomeDialogeFragment(), "CustomDialog")
+         //       .commit();
 
     }
     @Override
@@ -93,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
 
         int id = item.getItemId();
         if (id == R.id.end) {
-
             showCustomDialog();
         } else if (id == android.R.id.home) {
             drawerLayout.open();
@@ -111,16 +118,47 @@ public class MainActivity extends AppCompatActivity {
 //                        .setDrawerLayout(drawerLayout)
 //                        .build();
 
+
+
+
+    }
+
+    private void toggelBottomNavigationFragment(){
+
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
 
             if(id==R.id.chat){
                 changeFragment(new ChatFragment());
+             //   startActivity(new Intent(getApplicationContext(),ChatActivity.class));
+
+            }else if(id==R.id.unmute&& pressMute){
+                item.setIcon(R.drawable.ic_mute);
+                item.setTitle("Unmute");
+                pressMute =false;
+
+            }else if(id==R.id.unmute&&!pressMute){
+                item.setIcon(R.drawable.ic_unmute);
+                item.setTitle("Mute");
+                pressMute =true;
+            }
+            else if(id==R.id.stop_video&&pressVideo){
+                item.setIcon(R.drawable.ic_video_stop);
+                item.setTitle("Start Video");
+                pressVideo=false;
+            }else if(id==R.id.stop_video&&!pressVideo){
+                item.setIcon(R.drawable.ic_video_start);
+                item.setTitle("Stop Video");
+                pressVideo=true;
             }
 
             return false;
+
         });
 
+    }
+
+    private void toggelDrawerLayout(){
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
             if(id==R.id.participantFragment){
@@ -135,11 +173,17 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
     }
-
     private void changeFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.continer, fragment)
+                .commit();
+    }
+
+    private void addFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(fragment,"")
                 .commit();
     }
 
@@ -158,11 +202,6 @@ public class MainActivity extends AppCompatActivity {
 
             super.onBackPressed();
     }
-
-
-
-
-
 
 
 
