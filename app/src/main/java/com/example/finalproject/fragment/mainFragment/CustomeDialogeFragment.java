@@ -58,7 +58,7 @@ public class  CustomeDialogeFragment extends DialogFragment {
         buttonYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.exit(0);
+                getActivity().finish();
             }
         });
 

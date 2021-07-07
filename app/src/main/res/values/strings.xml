@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FinalProject</string>
+    <string name="app_name">ElKa3a</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
@@ -28,4 +28,9 @@
     <string name="message_user_left">%s left</string>
     <string name="user_action_typing">is typing</string>
     <string name="error_field_required" />
+    <string name="signin">Sign In</string>
+    <string name="signup">SignUp</string>
+    <string name="username">User Name</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="enter_your_message">Enter your message</string>
 </resources>
