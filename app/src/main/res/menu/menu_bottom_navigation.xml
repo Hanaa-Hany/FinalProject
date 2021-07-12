@@ -3,43 +3,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/unmute"
-        android:title="Mute"
+        android:title="@string/mute"
         android:icon="@drawable/ic_unmute"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:enabled="true"
-        android:state_checked="true">
+        >
     </item>
     <item
         android:id="@+id/stop_video"
-        android:title="Stop Video"
+        android:title="@string/stop_video"
         android:icon="@drawable/ic_video_start"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:enabled="true"
-        android:state_checked="true">
+        >
     </item>
     <item
         android:id="@+id/share_screen"
-        android:title="Share Screen"
+        android:title="@string/share_screen"
         android:icon="@drawable/ic_share"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:enabled="true"
-        android:state_checked="true">
+        >
     </item>
     <item
         android:id="@+id/hand"
-        android:title="Raise Hand"
+        android:title="@string/raise_hand"
         android:icon="@drawable/ic_hand"
         app:showAsAction="always"
         android:enabled="true"
-        android:state_checked="true">
+        >
     </item>
     <item
         android:id="@+id/chat"
-        android:title="Chat"
+        android:title="@string/chat"
         android:icon="@drawable/ic_chat"
         app:showAsAction="always"
         android:enabled="true"
-        android:state_checked="true">
+        >
     </item>
 
 

@@ -19,6 +19,7 @@ import android.widget.Button;
 
 import com.example.finalproject.R;
 import com.example.finalproject.activity.MainActivity;
+import com.example.finalproject.fragment.CustomDialogEnterMeetingFragment;
 
 
 public class  CustomeDialogeFragment extends DialogFragment {
@@ -59,6 +60,8 @@ public class  CustomeDialogeFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 getActivity().finish();
+                CustomDialogEnterMeetingFragment customDialogEnterMeetingFragment=new CustomDialogEnterMeetingFragment();
+
             }
         });
 

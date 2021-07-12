@@ -3,10 +3,12 @@ package com.example.finalproject.activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -23,6 +25,10 @@ import com.example.finalproject.fragment.mainFragment.CustomeDialogeFragment;
 
 import com.example.finalproject.fragment.mainFragment.HomeFragment;
 import com.example.finalproject.fragment.mainFragment.ParticipantFragment;
+import com.example.finalproject.fragment.signFragment.SignInFragment;
+import com.github.nkzawa.emitter.Emitter;
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -39,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
     boolean pressMute =true;
     boolean pressVideo=true;
     String Nickname;
-
+    private Socket socket;
+    private static final String TAG = "MainActivity";
 
 
     @Override
@@ -48,11 +55,35 @@ public class MainActivity extends AppCompatActivity {
        // mSocket.connect();
         setContentView(R.layout.activity_main);
 
-//        Nickname= (String)getIntent().getExtras().getString(UserActivity.NICKNAME);
+        Nickname= (String)getIntent().getExtras().getString(UserActivity.NICKNAME);
 
 
+        try {
+            socket = IO.socket("https://flannel-poutine-04705.herokuapp.com");
+            socket.connect();
+            socket.emit("join", Nickname);
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
 
+        }
         initViews();
+
+        //implementing socket listeners
+        socket.on("userjoinedthechat", new Emitter.Listener() {
+            @Override
+            public void call(final Object... args) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String data = (String) args[0];
+
+                        Toast.makeText(MainActivity.this,data,Toast.LENGTH_SHORT).show();
+                        Log.i(TAG, "run: "+data);
+
+                    }
+                });
+            }
+        });
         //to start with home fragment
         changeFragment(new HomeFragment());
 
@@ -150,6 +181,24 @@ public class MainActivity extends AppCompatActivity {
                 item.setIcon(R.drawable.ic_video_start);
                 item.setTitle("Stop Video");
                 pressVideo=true;
+            }else if (id==R.id.hand){
+                    try {
+                        socket = IO.socket("https://flannel-poutine-04705.herokuapp.com");
+                        socket.connect();
+                        Nickname= getIntent().getExtras().getString(SignInFragment.NICKNAME);
+
+                        socket.emit("join", Nickname);
+                        socket.emit("messagedetection",Nickname,"\u270B\uFE0F");
+
+                    } catch (URISyntaxException e) {
+                        e.printStackTrace();
+
+                    }
+                    Toast.makeText(getApplicationContext(),"Raise Hand",Toast.LENGTH_LONG).show();
+
+
+
+
             }
 
             return false;

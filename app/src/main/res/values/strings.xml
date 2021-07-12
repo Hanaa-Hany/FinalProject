@@ -33,4 +33,12 @@
     <string name="username">User Name</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="enter_your_message">Enter your message</string>
+    <string name="meeting_id">Meeting ID</string>
+    <string name="join">Join</string>
+    <string name="enter_meeting">Enter Meeting</string>
+    <string name="mute">Mute</string>
+    <string name="stop_video">Stop Video</string>
+    <string name="share_screen">Share Screen</string>
+    <string name="raise_hand">Raise Hand</string>
+    <string name="chat">Chat</string>
 </resources>

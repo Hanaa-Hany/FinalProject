@@ -60,16 +60,16 @@ public class HomeFragment extends Fragment {
 
     public void setHomeDataItems(){
 
-        HomeDataItem homeDataItem=new HomeDataItem(R.drawable.ic_bill_gates,"Bill Gates");
-        HomeDataItem homeDataItem1=new HomeDataItem(R.drawable.ic_bill_gates,"Bill Gates");
-        HomeDataItem homeDataItem2=new HomeDataItem(R.drawable.ic_bill_gates,"Bill Gates");
-        HomeDataItem homeDataItem3=new HomeDataItem(R.drawable.ic_bill_gates,"Bill Gates");
-        HomeDataItem homeDataItem4=new HomeDataItem(R.drawable.ic_bill_gates,"Bill Gates");
+        HomeDataItem homeDataItem=new HomeDataItem(R.drawable.hanaa,"Hanaa Hany");
+        HomeDataItem homeDataItem1=new HomeDataItem(R.drawable.bassant,"Bassant Hamoda");
+        HomeDataItem homeDataItem2=new HomeDataItem(R.drawable.aya,"Aya Abdo");
+        HomeDataItem homeDataItem3=new HomeDataItem(R.drawable.hager,"Hager Gomaa");
+
 
         homeDataItemArrayList.add(homeDataItem);
         homeDataItemArrayList.add(homeDataItem1);
         homeDataItemArrayList.add(homeDataItem2);
         homeDataItemArrayList.add(homeDataItem3);
-        homeDataItemArrayList.add(homeDataItem4);
+
     }
 }

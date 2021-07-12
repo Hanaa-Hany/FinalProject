@@ -31,9 +31,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:menu="@menu/menu_bottom_navigation"
             android:background="#E8E4E4"
-            android:forceHasOverlappingRendering="true"
+            app:itemIconSize="20dp"
             app:labelVisibilityMode="labeled"
-            app:itemIconSize="20dp"/>
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
